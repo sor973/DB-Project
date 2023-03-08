@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'CLIENT': {
             "host" : str(os.getenv('MONGODB_KEY')),
-            "name" : "DBProject",
+            "name" : "DB-Project",
             "authMechanism" : "SCRAM-SHA-1"
         }
     }
