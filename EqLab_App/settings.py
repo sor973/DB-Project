@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'EqLab_App.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'CLIENT': {
+            "host" : str(os.getenv('MONGODB_KEY')),
+            "name" : "DBProject",
+            "authMechanism" : "SCRAM-SHA-1"
+        }
     }
 }
 
