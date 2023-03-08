@@ -17,10 +17,10 @@ class User_privilegesSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class UserSerializer(serializers.ModelSerializer):
-    u_faculty = FacultySerializer()
-    u_department = DepartmentSerializer()
-    u_privilege = User_privilegesSerializer()
+    u_faculty = serializers.PrimaryKeyRelatedField(queryset=Faculty.objects.all())
+    u_department = serializers.PrimaryKeyRelatedField(queryset=Department.objects.all())
+    u_privilege = serializers.PrimaryKeyRelatedField(queryset=User_privileges.objects.all())
 
     class Meta:
         model = User
-        fields = ['id', 'u_id', 'u_name', 'u_email', 'u_tel', 'u_faculty', 'u_department', 'u_privilege', 'u_create_at', 'u_update_at']
+        fields = ['id', 'u_name', 'u_password', 'u_email', 'u_tel', 'u_faculty', 'u_department', 'u_privilege', 'u_create_at', 'u_update_at']

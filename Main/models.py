@@ -12,7 +12,6 @@ class User_privileges(models.Model):
     name = models.CharField(max_length=100)
 
 class User(models.Model):
-    u_id = models.IntegerField(default=0,unique=True)
     u_name = models.CharField(max_length=200)
     u_password = models.CharField(max_length=200)
     u_email = models.CharField(max_length=200)
